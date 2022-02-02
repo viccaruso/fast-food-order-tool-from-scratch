@@ -3,6 +3,7 @@ import './App.css';
 import { useState } from 'react';
 import Dropdown from './Dropdown';
 import OrderNameInput from './OrderNameInput';
+import OrderImages from './OrderImages';
 
 function App() {
   const [foodId, setFoodId] = useState(0);
@@ -24,6 +25,7 @@ function App() {
         <Dropdown setId={setDrinkId} options={sideItems}/>
         <Dropdown setId={setSideId} options={drinkItems}/>
         <OrderNameInput setOrderName={setOrderName}/>
+        <OrderImages foodId={foodId} sideId={sideId} drinkId={drinkId}/>
       </main>
       <footer>
 
