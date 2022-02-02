@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import Dropdown from './Dropdown';
 
 function App() {
   const [foodId, setFoodId] = useState(0);
@@ -8,6 +9,9 @@ function App() {
   const [drinkId, setDrinkId] = useState(0);
   const [instructions, setInstructions] = useState('');
   const [orderName, setOrderName] = useState('');
+  const foodItems = ['Hamburger', 'Cheeseburger', 'Double-Double'];
+  const sideItems = ['Fries', 'Animal Style Fries', 'Cheese Fries'];
+  const drinkItems = ['Coke', 'Dr. Pepper', 'Lemonade'];
 
   return (
     <div className="App">
@@ -15,7 +19,9 @@ function App() {
         
       </header>
       <main>
-        
+        <Dropdown setId={setFoodId} options={foodItems}/>
+        <Dropdown setId={setDrinkId} options={sideItems}/>
+        <Dropdown setId={setSideId} options={drinkItems}/>
       </main>
       <footer>
 
