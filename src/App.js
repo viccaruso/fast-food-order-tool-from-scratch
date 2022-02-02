@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import Dropdown from './Dropdown';
@@ -16,7 +15,7 @@ function App() {
   const foodItems = ['Hamburger', 'Cheeseburger', 'Double-Double'];
   const sideItems = ['Fries', 'Animal Style Fries', 'Cheese Fries'];
   const drinkItems = ['Coke', 'Dr. Pepper', 'Lemonade'];
-
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -31,11 +30,12 @@ function App() {
         </label>
         <OrderImages foodId={foodId} sideId={sideId} drinkId={drinkId} />
         <InstructionList instructions={instructions} />
-        <InstructionsForm />
+        <InstructionsForm instructions={instructions} setInstructions={setInstructions}/>
       </main>
       <footer>
 
       </footer>
+      
     </div>
   );
 }
