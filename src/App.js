@@ -7,35 +7,46 @@ import InstructionList from './InstructionList';
 import InstructionsForm from './InstructionsForm';
 
 function App() {
-  const [foodId, setFoodId] = useState(0);
-  const [sideId, setSideId] = useState(0);
-  const [drinkId, setDrinkId] = useState(0);
-  const [instructions, setInstructions] = useState(['This is a', 'list of instructions']);
-  const [orderName, setOrderName] = useState('');
+  const [foodId, setFoodId] = useState(1);
+  const [sideId, setSideId] = useState(1);
+  const [drinkId, setDrinkId] = useState(1);
+  const [instructions, setInstructions] = useState([]);
+  const [orderName, setOrderName] = useState('our valued customer');
   const foodItems = ['Hamburger', 'Cheeseburger', 'Double-Double'];
-  const sideItems = ['Fries', 'Animal Style Fries', 'Cheese Fries'];
-  const drinkItems = ['Coke', 'Dr. Pepper', 'Lemonade'];
-  
+  const sideItems = ['Fries', 'Apple Slices', 'Onion Rings'];
+  const drinkItems = ['Coke', 'Dr. Pepper', 'Pepsi', 'Orange Fanta', 'Sprite'];
+
   return (
     <div className="App">
       <header className="App-header">
         Order for {orderName}
       </header>
       <main>
-        <Dropdown setId={setFoodId} options={foodItems} />
-        <Dropdown setId={setSideId} options={sideItems} />
-        <Dropdown setId={setDrinkId} options={drinkItems} />
-        <label>Who is this order for? 
+
+        <label>Who is this order for?
           <OrderNameInput setOrderName={setOrderName} />
         </label>
+        <div className='dropdown-section'>
+          <label>Main Item
+            <Dropdown setId={setFoodId} options={foodItems} />
+          </label>
+          <label>Side
+            <Dropdown setId={setSideId} options={sideItems} />
+          </label>
+          <label>Drink
+            <Dropdown setId={setDrinkId} options={drinkItems} />
+          </label>
+        </div>
         <OrderImages foodId={foodId} sideId={sideId} drinkId={drinkId} />
+        <InstructionsForm instructions={instructions} setInstructions={setInstructions} />
+        <h3>Special Instructions</h3>
         <InstructionList instructions={instructions} />
-        <InstructionsForm instructions={instructions} setInstructions={setInstructions}/>
+        
       </main>
       <footer>
 
       </footer>
-      
+
     </div>
   );
 }
