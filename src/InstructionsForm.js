@@ -13,7 +13,7 @@ export default function InstructionsForm({ instructions, setInstructions }) {
   }
 
   return (
-    <div>
+    <div className='special-instructions'>
       <form onSubmit={handleSubmit}>
         <label> Special Instructions: 
           <input value={formInstruction} onChange={(e) => setFormInstruction(e.target.value)}/>
